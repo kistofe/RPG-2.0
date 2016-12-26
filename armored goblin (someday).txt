@@ -1,0 +1,35 @@
+monster_data armored_goblin;
+
+int armored_goblin_appearance;
+armored_goblin.combat.hp = rand() % 10 + 15;
+armored_goblin.combat.attack_max = rand() % 2 + 8;
+armored_goblin.combat.attack_min = rand() % 4 + 3;
+armored_goblin.combat.armor = rand() % 2 + 2;
+armored_goblin_appearance = rand() % 101;
+
+uint armored_goblin_total_attack;
+uint armored_goblin_damage;	
+
+uint hero_damage_to_armored_goblin = total_hero_attack - armored_goblin.combat.armor;
+armored_goblin_total_attack = armored_goblin.combat.attack_min + rand() % (armored_goblin.combat.attack_max - armored_goblin.combat.attack_min);
+armored_goblin_damage = armored_goblin_total_attack - hero->combat.armor;
+
+if (armored_goblin_appearance <= 5)
+			{
+				printf("An Armored Goblin appeared!");
+				if (armored_goblin.combat.hp <= 0)
+				{
+					printf("The Armored Goblin has died!");
+				}
+				if (armored_goblin_damage > hero->combat.armor)
+				{
+					printf("The Armored Goblin dealt %d points of damage!", armored_goblin_damage);
+					hero->combat.hp = hero->combat.hp - armored_goblin_damage;
+				}
+				else
+				{
+					printf("The foe Armored Goblin blocked your attack! You get hurt by its spiky shield!");
+					hero->combat.hp = hero->combat.hp - (armored_goblin_damage / 2);
+				}
+			}
+
