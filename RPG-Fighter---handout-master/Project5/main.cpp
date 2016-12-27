@@ -28,8 +28,9 @@ void combat_flow(hero_data* hero)
 
 	monster_data goblin[6];
 
-	int wave_size = 0;
-	int dead_enemy = 0;
+	int wave_size				= 0;
+	int dead_enemy				= 0;
+	int current_enemies_dead	= 0;
 	
 	while (hero->combat.hp > 0)//General combat until Hero dies
 	{
@@ -52,70 +53,75 @@ void combat_flow(hero_data* hero)
 		{
 			int attacked_goblin = 1 + (rand() % wave_size);
 
-
-			int total_hero_attack				= hero->combat.attack_min + (rand() % (hero->combat.attack_max - hero->combat.attack_min));
-			int hero_damage_to_goblin			= total_hero_attack - goblin[attacked_goblin].combat.armor;
-			goblin[attacked_goblin].combat.hp	= goblin[attacked_goblin].combat.hp - hero_damage_to_goblin;
-
-			if (hero_damage_to_goblin > goblin[attacked_goblin].combat.armor)//Hero attacking the goblins
+			if (goblin[attacked_goblin].combat.hp > 0)
 			{
-				printf("\nYou attack the #%d Goblin with a fast movement. You dealt %d damage to the foe Goblin!", attacked_goblin, hero_damage_to_goblin);
-				getchar();
+				int total_hero_attack = hero->combat.attack_min + (rand() % (hero->combat.attack_max - hero->combat.attack_min));
+				int hero_damage_to_goblin = total_hero_attack - goblin[attacked_goblin].combat.armor;
+				goblin[attacked_goblin].combat.hp = goblin[attacked_goblin].combat.hp - hero_damage_to_goblin;
 
-				if (goblin[attacked_goblin].combat.hp <= 0)
+				if (hero_damage_to_goblin > 0)//Hero attacking the goblins
 				{
-					dead_enemy++;
-					printf("\nNice attack! You defeated the #%d Goblin!", attacked_goblin);
+					printf("\nYou attack the #%d Goblin with a fast movement. You dealt %d damage to the foe Goblin!", attacked_goblin, hero_damage_to_goblin);
 					getchar();
+
+					if (goblin[attacked_goblin].combat.hp <= 0)
+					{
+						current_enemies_dead++;
+						printf("\nNice attack! You defeated the #%d Goblin!", attacked_goblin);
+						getchar();
+					}
+					else
+					{
+						printf("\nIt's not over yet! The foe Goblin has %d HP left", goblin[attacked_goblin].combat.hp);
+						getchar();
+					}
 				}
 				else
 				{
-					printf("\nIt's not over yet! The foe Goblin has %d HP left", goblin[attacked_goblin].combat.hp);
+					printf("\nThe foe Goblin blocked your attack!");
 					getchar();
 				}
-			}
-			else
-			{
-				printf("\nThe foe Goblin blocked your attack!");
-				getchar();
-			}
 
-			for (int i = 0; i < wave_size; i++)//Dead enemies counter
-			{
-				if (goblin[i].combat.hp <= 0)
+				
+				int goblin_total_attack;
+				int goblin_damage;
+
+				for (int i = 0; i < wave_size; i++)//Goblins attacking the Hero
 				{
-					wave_size = wave_size - dead_enemy;
-				}
-			}
+					if (goblin[i].combat.hp > 0)
+					{
+						printf("\nBe careful %s! The enemy is preparing to attack you!", hero->name);
+						getchar();
 
-			int goblin_total_attack;
-			int goblin_damage;
+						goblin_total_attack = goblin[i].combat.attack_min + rand() % (goblin[i].combat.attack_max - goblin[i].combat.attack_min);
+						goblin_damage = goblin_total_attack - hero->combat.armor;
+
+						if (goblin_damage > hero->combat.armor)
+						{
+							hero->combat.hp = hero->combat.hp - goblin_damage;
+							printf("\nThe foe Goblin dealt %d points of damage! You have %d HP left", goblin_damage, hero->combat.hp);
+							getchar();
+
+						}
+						else
+						{
+							printf("\nYou blocked the enemy's attack!");
+							getchar();
+						}
+
+						if (current_enemies_dead == wave_size)
+						{
+							current_enemies_dead == dead_enemy;
+						}
+					}
+				}
+				
+			}
 			
-			for (int i = 0; i < wave_size; i++)//Goblins attacking the Hero
-			{
-				printf("Be carefeul %s! The enemy is preparing to attack you!", hero->name);
-				getchar();
-
-				goblin_total_attack = goblin[i].combat.attack_min + rand() % (goblin[i].combat.attack_max - goblin[i].combat.attack_min);
-				goblin_damage		= goblin_total_attack - hero->combat.armor;
-
-				if (goblin_damage > hero->combat.armor)
-				{
-					hero->combat.hp = hero->combat.hp - goblin_damage;
-					printf("\nThe foe Goblin dealt %d points of damage! You have %d HP left", goblin_damage, hero->combat.hp);
-					getchar();
-					
-				}
-				else
-				{
-					printf("\nYou blocked the enemy's attack!");
-				}
-				dead_enemy = 0;
-			}
 		}
+		
 		printf("\nGood job! You defeated the goblin horde! Now we will be able to continue our adventure");
 		getchar();
-
 	}
 	printf("You died! GAME OVER");
 	getchar();

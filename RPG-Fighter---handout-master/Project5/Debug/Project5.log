@@ -1,4 +1,5 @@
 ﻿  main.cpp
-c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(36): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(37): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(114): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
   Project5.vcxproj -> C:\Users\crist\Desktop\RPG programació\RPG programació\RPG-Fighter---handout-master\Debug\RPG Fighter.exe
   Project5.vcxproj -> C:\Users\crist\Desktop\RPG programació\RPG programació\RPG-Fighter---handout-master\Debug\RPG Fighter.pdb (Full PDB)
