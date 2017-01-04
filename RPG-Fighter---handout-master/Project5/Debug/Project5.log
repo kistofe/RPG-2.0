@@ -1,5 +1,7 @@
 ﻿  main.cpp
-c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(37): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(114): warning C4553: '==': el operador no tiene efecto; ¿ha pensado en '='?
+c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(46): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(165): warning C4551: la llamada a la función no tiene lista de argumentos
+c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(175): warning C4477: 'scanf' : la cadena de formato '%d' requiere un argumento de tipo 'int *', pero el argumento variádico 1 tiene el tipo 'int'
+c:\users\crist\desktop\rpg programació\rpg programació\rpg-fighter---handout-master\project5\main.cpp(298): warning C4477: 'scanf' : la cadena de formato '%s' requiere un argumento de tipo 'char *', pero el argumento variádico 1 tiene el tipo 'int *'
   Project5.vcxproj -> C:\Users\crist\Desktop\RPG programació\RPG programació\RPG-Fighter---handout-master\Debug\RPG Fighter.exe
   Project5.vcxproj -> C:\Users\crist\Desktop\RPG programació\RPG programació\RPG-Fighter---handout-master\Debug\RPG Fighter.pdb (Full PDB)

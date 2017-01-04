@@ -10,6 +10,7 @@ struct combat_data
 	int attack_min;
 	int attack_max;
 	int armor;
+	int mana;
 };
 
 struct hero_data
@@ -18,6 +19,7 @@ struct hero_data
 	struct combat_data combat;
 	int coins;
 	int xp;
+	int potions;
 };
 
 struct monster_data
