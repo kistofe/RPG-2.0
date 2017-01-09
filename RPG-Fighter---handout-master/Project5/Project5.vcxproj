@@ -66,12 +66,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="combats.cpp" />
     <ClCompile Include="creatures.cpp" />
+    <ClCompile Include="utility functions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="string library.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="combats.h" />
     <ClInclude Include="creatures.h" />
+    <ClInclude Include="utility functions.h" />
     <ClInclude Include="string library.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

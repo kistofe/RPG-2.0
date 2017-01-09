@@ -2,3 +2,12 @@
 -hero level up
 -boss
 -Poison, paralized 
+
+Hero learns Skills as it levels up.
+-Level 2	-Heal (Heals 20 HP)				cost= 5		input= h
+-Level 4	-Kaboom (Deals damage to all enemies)		cost= 5		input= k
+-Level 7	-OmniHeal (Heals full HP)			cost= 10	input= o
+-Level 10	-Magic Burst (Deals massive damage)		cost= 15	input= m
+Mana starts at 5 MP
+Each level increases by 1
+At level 10, Max Mana will be 15

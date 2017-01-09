@@ -16,12 +16,24 @@
     <ClCompile Include="string library.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="utility functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="combats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="creatures.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="string library.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utility functions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="combats.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
